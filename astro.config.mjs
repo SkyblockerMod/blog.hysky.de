@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import swup from "@swup/astro";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
+import pagefind from "astro-pagefind";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components"; /* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
@@ -51,6 +52,7 @@ export default defineConfig({
 		}),
 		svelte(),
 		sitemap(),
+		pagefind(),
 	],
 	markdown: {
 		remarkPlugins: [

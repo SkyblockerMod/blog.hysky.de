@@ -1,11 +1,11 @@
 ---
+import { Icon } from "astro-icon/components";
 import { navBarConfig, siteConfig } from "../config";
 import { LinkPresets } from "../constants/link-presets";
 import { LinkPreset, type NavBarLink } from "../types/config";
 import { url } from "../utils/url-utils";
 import LightDarkSwitch from "./LightDarkSwitch.svelte";
-import Search from "./Search.svelte";
-import ImageWrapper from "./misc/ImageWrapper.astro";
+import Search from "astro-pagefind/components/Search";
 import DisplaySettings from "./widget/DisplaySettings.svelte";
 import NavMenuPanel from "./widget/NavMenuPanel.astro";
 const className = Astro.props.class;
@@ -26,13 +26,16 @@ let links: NavBarLink[] = navBarConfig.links.map(
         "card-base !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4"]}>
         <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
             <div class="flex flex-row text-[var(--primary)] items-center text-md">
-                <ImageWrapper src="/public/favicon/icon.png" alt="Logo" class="w-6 h-6 mb-1 mr-2" />
-                {siteConfig.title}
+                <Icon name="material-symbols:home-outline-rounded" class="text-[1.75rem] mb-1 mr-2" />                {siteConfig.title}
             </div>
         </a>
-        <div class="flex flex-1 max-w-lg">
-            <Search client:only="svelte"></Search>
-        </div>
+        <div class="flex flex-1 max-w-lg relative z-60">
+            <Search 
+              id="site-search" 
+              className="pagefind-ui w-full bg-white" 
+              uiOptions={{ showImages: false }} 
+            />
+          </div>
         <div class="flex">
             <a aria-label=Wiki href="https://wiki.hysky.de"
             class="btn-plain scale-animation rounded-lg h-11 font-bold px-5 active:scale-95"

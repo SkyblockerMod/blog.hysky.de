@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "type-check": "tsc --noEmit --isolatedDeclarations",
@@ -30,6 +30,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "astro": "5.7.8",
     "astro-icon": "^1.1.5",
+    "astro-pagefind": "^1.8.3",
     "hastscript": "^9.0.1",
     "katex": "^0.16.22",
     "markdown-it": "^14.1.0",
@@ -64,6 +65,5 @@
     "@types/sanitize-html": "^2.15.0",
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^13.0.1"
-  },
-  "packageManager": "pnpm@9.14.4"
+  }
 }
