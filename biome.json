@@ -7,11 +7,19 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["src/**/*.css","src/public/**/*", "dist/**/*", "node_modules/**/*"]
+    "ignore": [
+      "src/**/*.css",
+      "src/public/**/*",
+      "dist/**/*",
+      "node_modules/**/*"
+    ]
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "tab"
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "useEditorconfig": true
   },
   "organizeImports": {
     "enabled": true

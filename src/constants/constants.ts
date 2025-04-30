@@ -3,8 +3,8 @@ export const UNCATEGORIZED = "__uncategorized__";
 export const PAGE_SIZE = 8;
 
 export const LIGHT_MODE: string = "light",
-	DARK_MODE: string = "dark",
-	AUTO_MODE: string = "auto";
+  DARK_MODE: string = "dark",
+  AUTO_MODE: string = "auto";
 export const DEFAULT_THEME: string = AUTO_MODE;
 
 // Banner height unit: vh

@@ -1,0 +1,196 @@
+---
+import type { GetStaticPaths } from "astro";
+import { PAGE_SIZE } from "../constants/constants";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getSortedPosts } from "../utils/content-utils";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allBlogPosts = await getSortedPosts();
+  return paginate(allBlogPosts, { pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
+// https://github.com/withastro/astro/issues/6507#issuecomment-1489916992
+---
+
+<MainGridLayout>
+    <div class="transition  flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4 mb-4 card-base flex flex-col-reverse md:flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative pl-6 md:pl-9 pr-6 md:pr-2 pt-6 md:pt-7 pb-6 relative w-full md:w-[calc(100%_-_52px_-_12px)] w-full md:w-[calc(100%_-_var(--coverWidth)_-_12px)]">
+        <!-- Repeat for each variable -->
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--primary)"></div>
+            --primary
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--page-bg)"></div>
+            --page-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--card-bg)"></div>
+            --card-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-content)"></div>
+            --btn-content
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-regular-bg)"></div>
+            --btn-regular-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-regular-bg-hover)"></div>
+            --btn-regular-bg-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-regular-bg-active)"></div>
+            --btn-regular-bg-active
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-plain-bg-hover)"></div>
+            --btn-plain-bg-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-plain-bg-active)"></div>
+            --btn-plain-bg-active
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-card-bg-hover)"></div>
+            --btn-card-bg-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--btn-card-bg-active)"></div>
+            --btn-card-bg-active
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--deep-text)"></div>
+            --deep-text
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--title-active)"></div>
+            --title-active
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--line-divider)"></div>
+            --line-divider
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--line-color)"></div>
+            --line-color
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--meta-divider)"></div>
+            --meta-divider
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--inline-code-bg)"></div>
+            --inline-code-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--inline-code-color)"></div>
+            --inline-code-color
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--selection-bg)"></div>
+            --selection-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--codeblock-selection)"></div>
+            --codeblock-selection
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--codeblock-bg)"></div>
+            --codeblock-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--license-block-bg)"></div>
+            --license-block-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--link-underline)"></div>
+            --link-underline
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--link-hover)"></div>
+            --link-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--link-active)"></div>
+            --link-active
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--float-panel-bg)"></div>
+            --float-panel-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--enter-btn-bg)"></div>
+            --enter-btn-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--enter-btn-bg-hover)"></div>
+            --enter-btn-bg-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--enter-btn-bg-active)"></div>
+            --enter-btn-bg-active
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--scrollbar-bg)"></div>
+            --scrollbar-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--scrollbar-bg-hover)"></div>
+            --scrollbar-bg-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--scrollbar-bg-active)"></div>
+            --scrollbar-bg-active
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-image: var(--color-selection-bar)"></div>
+            --color-selection-bar
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--admonitions-color-tip)"></div>
+            --admonitions-color-tip
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--admonitions-color-note)"></div>
+            --admonitions-color-note
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--admonitions-color-important)"></div>
+            --admonitions-color-important
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--admonitions-color-warning)"></div>
+            --admonitions-color-warning
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--admonitions-color-caution)"></div>
+            --admonitions-color-caution
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--toc-badge-bg)"></div>
+            --toc-badge-bg
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--toc-btn-hover)"></div>
+            --toc-btn-hover
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--toc-btn-active)"></div>
+            --toc-btn-active
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border bg-white text-black flex items-center justify-center text-xs font-semibold">
+              ⇔
+            </div>
+            --toc-width (length, not a color)
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border shadow" style="background-color: var(--toc-item-active)"></div>
+            --toc-item-active
+          </div>
+      </div>
+</MainGridLayout>

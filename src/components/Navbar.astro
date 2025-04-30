@@ -1,22 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
+import Search from "astro-pagefind/components/Search";
 import { navBarConfig, siteConfig } from "../config";
 import { LinkPresets } from "../constants/link-presets";
 import { LinkPreset, type NavBarLink } from "../types/config";
 import { url } from "../utils/url-utils";
 import LightDarkSwitch from "./LightDarkSwitch.svelte";
-import Search from "astro-pagefind/components/Search";
 import DisplaySettings from "./widget/DisplaySettings.svelte";
 import NavMenuPanel from "./widget/NavMenuPanel.astro";
 const className = Astro.props.class;
 
 let links: NavBarLink[] = navBarConfig.links.map(
-	(item: NavBarLink | LinkPreset): NavBarLink => {
-		if (typeof item === "number") {
-			return LinkPresets[item];
-		}
-		return item;
-	},
+  (item: NavBarLink | LinkPreset): NavBarLink => {
+    if (typeof item === "number") {
+      return LinkPresets[item];
+    }
+    return item;
+  },
 );
 ---
 <div id="navbar" class="z-50 onload-animation">
@@ -29,13 +29,24 @@ let links: NavBarLink[] = navBarConfig.links.map(
                 <Icon name="material-symbols:home-outline-rounded" class="text-[1.75rem] mb-1 mr-2" />                {siteConfig.title}
             </div>
         </a>
-        <div class="flex flex-1 max-w-lg relative z-60">
-            <Search 
-              id="site-search" 
-              className="pagefind-ui w-full bg-white" 
-              uiOptions={{ showImages: false }} 
-            />
-          </div>
+<!-- Search Trigger -->
+<div class="flex flex-1 max-w-lg justify-center relative z-60">
+    <button
+      id="search-trigger"
+      type="button"
+      class="sm:w-full h-[2.75rem] px-4 flex items-center rounded-md text-[var(--primary)] text-sm font-medium border border-[var(--border)] hover:bg-[var(--card-bg-hover)] transition"
+      aria-label="Open search"
+    >
+    <Icon name="material-symbols:search" class="text-xl" />
+      <span class="ml-2 inline">Search…</span>
+      <kbd class="ml-auto hidden md:flex text-xs px-1.5 py-0.5 border rounded text-gray-500 border-gray-300 dark:border-gray-700 dark:text-gray-400">
+        Ctrl K
+      </kbd>
+    </button>
+  </div>
+  
+  <div class="hidden backdrop:bg-black/50 backdrop:backdrop-blur-sm"></div>
+
         <div class="flex">
             <a aria-label=Wiki href="https://wiki.hysky.de"
             class="btn-plain scale-animation rounded-lg h-11 font-bold px-5 active:scale-95"
@@ -49,6 +60,24 @@ let links: NavBarLink[] = navBarConfig.links.map(
         <NavMenuPanel links={links}></NavMenuPanel>
         <DisplaySettings client:only="svelte"></DisplaySettings>
     </div>
+</div>
+
+  <!-- Search Modal -->
+  <div
+  id="search-overlay"
+  class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm p-4 flex overflow-y-auto items-start justify-center"
+  style="display: none"
+>
+  <div
+    id="search-modal-inner"
+    class="bg-[var(--card-bg)] text-black/30 dark:text-white/30 rounded-xl shadow-xl p-6 w-full max-w-xl mt-24 relative"
+  >
+    <Search
+      id="popup-search"
+      className="w-full pagefind-ui "
+      uiOptions={{ showImages: false }}
+    />
+  </div>
 </div>
 
 <script>
@@ -94,15 +123,57 @@ function loadButtonScript() {
 loadButtonScript();
 </script>
 
-{import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
-async function loadPagefind() {
-    const pagefind = await import(scriptUrl)
-    await pagefind.options({
-        'excerptLength': 20
-    })
-    pagefind.init()
-    window.pagefind = pagefind
-    pagefind.search('')     // speed up the first search
-}
-loadPagefind()
-</script>}
+<script is:inline>
+    const overlay = document.getElementById("search-overlay");
+    const trigger = document.getElementById("search-trigger");
+    const modalInner = document.getElementById("search-modal-inner");
+  
+    function openSearchModal() {
+      overlay.style.display = 'flex';
+      overlay.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden"); 
+
+      requestAnimationFrame(() => {
+        const input = document.querySelector("#popup-search input");
+        if (input) input.focus();
+      });
+    }
+  
+    function closeSearchModal() {
+      overlay.classList.add("hidden");
+      overlay.style.display = 'none';
+      document.body.classList.remove("overflow-hidden");
+
+      const input = document.querySelector("#popup-search input");
+      if (input) {
+            input.value = ""; // clear the field
+
+            // ✅ Trigger input event so Pagefind updates
+            const event = new Event("input", { bubbles: true });
+            input.dispatchEvent(event);
+
+            // Optional: blur input to remove focus state
+            input.blur();
+      }
+    }
+
+    overlay.addEventListener("click", () => {
+        closeSearchModal();
+    });
+
+    modalInner.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+  
+    trigger?.addEventListener("click", openSearchModal);
+  
+    window.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        openSearchModal();
+      }
+      if (e.key === "Escape") {
+        closeSearchModal();
+      }
+    });
+  </script>

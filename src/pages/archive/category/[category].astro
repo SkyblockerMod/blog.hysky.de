@@ -6,14 +6,14 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getCategoryList } from "@utils/content-utils";
 
 export async function getStaticPaths() {
-	const categories = await getCategoryList();
-	return categories.map((category) => {
-		return {
-			params: {
-				category: category.name,
-			},
-		};
-	});
+  const categories = await getCategoryList();
+  return categories.map((category) => {
+    return {
+      params: {
+        category: category.name,
+      },
+    };
+  });
 }
 
 const category = Astro.params.category as string;
