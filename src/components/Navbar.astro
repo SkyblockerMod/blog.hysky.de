@@ -44,7 +44,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
       </kbd>
     </button>
   </div>
-  
+
   <div class="hidden backdrop:bg-black/50 backdrop:backdrop-blur-sm"></div>
 
         <div class="flex">
@@ -74,7 +74,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
   >
     <Search
       id="popup-search"
-      className="w-full pagefind-ui "
+      className="w-full pagefind-ui"
       uiOptions={{ showImages: false }}
     />
   </div>
@@ -127,18 +127,18 @@ loadButtonScript();
     const overlay = document.getElementById("search-overlay");
     const trigger = document.getElementById("search-trigger");
     const modalInner = document.getElementById("search-modal-inner");
-  
+
     function openSearchModal() {
       overlay.style.display = 'flex';
       overlay.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden"); 
+      document.body.classList.add("overflow-hidden");
 
       requestAnimationFrame(() => {
         const input = document.querySelector("#popup-search input");
         if (input) input.focus();
       });
     }
-  
+
     function closeSearchModal() {
       overlay.classList.add("hidden");
       overlay.style.display = 'none';
@@ -146,13 +146,11 @@ loadButtonScript();
 
       const input = document.querySelector("#popup-search input");
       if (input) {
-            input.value = ""; // clear the field
+            input.value = "";
 
-            // ✅ Trigger input event so Pagefind updates
             const event = new Event("input", { bubbles: true });
             input.dispatchEvent(event);
 
-            // Optional: blur input to remove focus state
             input.blur();
       }
     }
@@ -164,9 +162,9 @@ loadButtonScript();
     modalInner.addEventListener("click", (e) => {
         e.stopPropagation();
     });
-  
+
     trigger?.addEventListener("click", openSearchModal);
-  
+
     window.addEventListener("keydown", (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
         e.preventDefault();

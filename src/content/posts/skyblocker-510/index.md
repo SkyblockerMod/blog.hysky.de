@@ -4,7 +4,7 @@ published: 2025-02-04
 tags:
   - Skyblocker
   - New feature
-category: Update
+category: Mod
 ---
 :::caution
 Work in progress
@@ -12,20 +12,20 @@ Work in progress
 FIXME **add missing images**
 :::
 
-:::note  
-### New Versioning System  
+:::note
+### New Versioning System
 
-To prevent confusion with Minecraft's versioning, we are adopting a Unity-style versioning scheme:  
+To prevent confusion with Minecraft's versioning, we are adopting a Unity-style versioning scheme:
 
-**x.y.z**  
-- **x (Yearly Increment):** Increases by 1 each year. Since the project began in 2020, version **5.0.0** corresponds to the year **2025**.  
-- **y (Feature Updates):** Increments for major or minor feature updates.  
-- **z (Patches & Fixes):** Represents patches, bug fixes, and hotfixes.  
+**x.y.z**
+- **x (Yearly Increment):** Increases by 1 each year. Since the project began in 2020, version **5.0.0** corresponds to the year **2025**.
+- **y (Feature Updates):** Increments for major or minor feature updates.
+- **z (Patches & Fixes):** Represents patches, bug fixes, and hotfixes.
 
-This ensures our versioning remains clear and distinct from Minecraft's own numbering system.  
+This ensures our versioning remains clear and distinct from Minecraft's own numbering system.
 :::
 
-## 🏆 Top 3 new Features  
+## 🏆 Top 3 new Features
 <details>
 <summary>Fancy Tab Hud 2.0 (back and customizable)</summary>
 </details>
@@ -38,7 +38,7 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## 🌱 Garden  
+## 🌱 Garden
 <details>
 <summary>Daedalus axe as farming tool</summary>
 </details>
@@ -51,7 +51,7 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## ⚔️ Dungeon  
+## ⚔️ Dungeon
 <details>
 <summary>Floor 7 Terminal/Device Waypoints</summary>
 </details>
@@ -64,8 +64,8 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## 👹 Slayer  
-### General  
+## 👹 Slayer
+### General
 <details>
 <summary>Slayer Bossbars</summary>
 </details>
@@ -82,7 +82,7 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 <summary>Boss and MiniBoss spawn alert</summary>
 </details>
 
-### Enderman Slayer  
+### Enderman Slayer
 <details>
 <summary>Mute Enderman sounds</summary>
 </details>
@@ -92,7 +92,7 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## ⛏️ Mining  
+## ⛏️ Mining
 <details>
 <summary>Powder mining tracker</summary>
 </details>
@@ -108,7 +108,7 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## 🌟 Quality of Life Improvements  
+## 🌟 Quality of Life Improvements
 <details>
 <summary>Smooth AOTE</summary>
 </details>
@@ -151,7 +151,7 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## 🎪 Event  
+## 🎪 Event
 <details>
 <summary>Estimated Diana burrow pos</summary>
 </details>
@@ -175,13 +175,13 @@ This ensures our versioning remains clear and distinct from Minecraft's own numb
 
 ---
 
-## 🐞 Bug Fixes  
-- Fix Skin Transparency  
-- Fix Nukekubi Heads  
-- Fix kings scent detection  
-- Fix BazaarPriceTooltip crash in sacks  
-- Fix PV failing to fetch skins  
-- Fix NPE  
-- Fix offhand slot moving around  
-- Fix crash on missing pet info in slayer rewards  
-- Fix undyed leather armour turning black  
+## 🐞 Bug Fixes
+- Fix Skin Transparency
+- Fix Nukekubi Heads
+- Fix kings scent detection
+- Fix BazaarPriceTooltip crash in sacks
+- Fix PV failing to fetch skins
+- Fix NPE
+- Fix offhand slot moving around
+- Fix crash on missing pet info in slayer rewards
+- Fix undyed leather armour turning black

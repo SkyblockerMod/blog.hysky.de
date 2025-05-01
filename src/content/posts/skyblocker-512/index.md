@@ -6,7 +6,7 @@ authors:
 tags:
   - Skyblocker
   - Fix
-category: Update
+category: Mod
 ---
 
 * Fix Fossil solver

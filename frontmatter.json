@@ -13,7 +13,8 @@
     {
       "name": "default",
       "pageBundle": true,
-      "previewPath": "'blog'",
+      "template": "[[workspace]]/.frontmatter/templates/article.md",
+      "previewPath": "posts/{{pathToken.relPath}}",
       "filePrefix": null,
       "clearEmpty": true,
       "fields": [
@@ -32,6 +33,7 @@
           "title": "published",
           "name": "published",
           "type": "datetime",
+          "dateFormat": "yyyy-MM-dd",
           "default": "{{now}}",
           "isPublishDate": true
         },
@@ -44,12 +46,15 @@
         {
           "title": "tags",
           "name": "tags",
-          "type": "list"
+          "type": "tags"
         },
         {
           "title": "category",
           "name": "category",
-          "type": "string"
+          "type": "categories",
+          "singleValueAsString": true,
+          "taxonomyLimit": 1,
+          "editable": true
         },
         {
           "title": "draft",
@@ -63,5 +68,47 @@
         }
       ]
     }
-  ]
+  ],
+  "frontMatter.website.host": "https://blog.hysky.de",
+  "frontMatter.framework.startCommand": "bun run dev",
+  "frontMatter.content.snippets": {
+    "Notification": {
+      "description": "",
+      "body": [
+        ":::[[type]]",
+        "[[content]]",
+        ":::"
+      ],
+      "fields": [
+        {
+          "name": "type",
+          "title": "type",
+          "type": "choice",
+          "single": true,
+          "choices": [
+            "note",
+            "tip",
+            "caution",
+            "danger"
+          ],
+          "default": "note"
+        },
+        {
+          "name": "content",
+          "title": "content",
+          "type": "string",
+          "single": false,
+          "default": ""
+        }
+      ]
+    },
+    "Content": {
+      "description": "",
+      "body": [
+        "<details>",
+        "<summary>[[Title]]</summary>",
+        "</details>"
+      ]
+    }
+  }
 }
