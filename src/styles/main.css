@@ -172,7 +172,7 @@ html.dark .pagefind-ui__result-excerpt {
 .pagefind-ui__search-clear,
 html.dark .pagefind-ui__search-input,
 html.dark .pagefind-ui__search-clear {
-    background-color: var(--card-bg) !important; 
+    background-color: var(--card-bg) !important;
     color: var(--primary) !important;
 }
 
